@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body class="full">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 faded center">
+        {% if message %}
+        <p class="lead text-center text-success">{{ message }}</p>
+        {% endif %}
+        {% if form.errors %}
+        {{ form.errors }}
+        {% endif %}
+        <h1 class="text-center">VINN TANDEMKURS MED TANDEMHOPP FOR TO PERSONER!</h1>
+        <hr>
+        <p class="lead text-center">KOM PÅ DET BESTE NAVNEFORSLAGET TIL DET NYE LOKALET TIL START, SPARK* OG ENTREPRENØRSKOLEN.</br>VINNERNAVNET KÅRES OG AVDUKES UNDER ÅPNING 2. SEPTEMBER I 3. ETASJE GAMLE FYSIKK.</p>
+        <form method="POST" class="form">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-xs-8">
+              <input type="text" class="form-control input-orange" name="name" placeholder="Navn" />
+            </div>
+            <div class="col-xs-4">
+              <input type="text" class="form-control input-orange" name="phone" placeholder="91213141" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <input type="text" class="form-control input-orange" name="name_proposal" placeholder="Navneforslag" />
+            </div>
+            <div class="col-xs-4">
+              <input type="email" class="form-control input-orange" name="email" placeholder="Email" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <input type="submit" class="submit-btn" value="Send" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <img src="http://www.ntnu.no/ntnu-theme/images/logo_ntnu.svg" alt="" class="img-responsive" />
+            </div>
+            <div class="col-xs-3">
+              <img src="http://startntnu.no/wp-content/uploads/sites/2/2015/02/Start-NTNU-logo-300x100.png" alt="" class="img-responsive" />
+            </div>
+            <div class="col-xs-3">
+              <img src="http://sparkntnu.no/App_Themes/Spark2015/images/logo.png" alt="" class="img-responsive" />
+            </div>
+            <div class="col-xs-3">
+              <img src="http://entreprenorskolen.no/wp-content/themes/es/img/logo.png" alt="" class="img-responsive" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+</html>
